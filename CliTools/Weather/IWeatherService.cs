@@ -11,10 +11,10 @@ public interface IWeatherService
 
 public class OpenWeatherMapService : IWeatherService
 {
-    private const string ApiKey = "47232a8e5b8e1b4189713ee6ff0520da";
+    private const string ApiKey = "e2b7dcf3ba874ba8a5d141824241204";
 
     private readonly IHttpClientFactory _httpClientFactory;
-
+        
     public OpenWeatherMapService(IHttpClientFactory httpClientFactory)
     {
         _httpClientFactory = httpClientFactory;
@@ -24,7 +24,7 @@ public class OpenWeatherMapService : IWeatherService
     {
         var client = _httpClientFactory.CreateClient();
 
-        var url = $"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={ApiKey}&units=metric";
+        var url = $"http://api.weatherapi.com/v1/current.json?key={ApiKey}&q=Sarajevo&aqi=no";
 
         var weatherResponse = await client.GetAsync(url);
         if (weatherResponse.StatusCode == HttpStatusCode.NotFound)

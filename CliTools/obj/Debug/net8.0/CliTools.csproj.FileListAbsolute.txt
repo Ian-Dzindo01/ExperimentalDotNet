@@ -50,3 +50,7 @@ C:\Users\iandz\Desktop\Projects\ExperimentalDotNet\CliTools\obj\Debug\net8.0\ref
 C:\Users\iandz\Desktop\Projects\ExperimentalDotNet\CliTools\obj\Debug\net8.0\CliTools.pdb
 C:\Users\iandz\Desktop\Projects\ExperimentalDotNet\CliTools\obj\Debug\net8.0\CliTools.genruntimeconfig.cache
 C:\Users\iandz\Desktop\Projects\ExperimentalDotNet\CliTools\obj\Debug\net8.0\ref\CliTools.dll
+C:\Users\iandz\Desktop\Projects\ExperimentalDotNet\CliTools\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.dll
+C:\Users\iandz\Desktop\Projects\ExperimentalDotNet\CliTools\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+C:\Users\iandz\Desktop\Projects\ExperimentalDotNet\CliTools\bin\Debug\net8.0\Microsoft.Extensions.Http.dll
+C:\Users\iandz\Desktop\Projects\ExperimentalDotNet\CliTools\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll

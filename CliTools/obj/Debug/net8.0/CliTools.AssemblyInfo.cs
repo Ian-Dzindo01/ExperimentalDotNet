@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CliTools")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9f2b0f6102439ddcd1e4238d8b68e29ec460ccb1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4b85df3b8e340d9b43c18f748ff4f97dbe7db2a8")]
 [assembly: System.Reflection.AssemblyProductAttribute("CliTools")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CliTools")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
