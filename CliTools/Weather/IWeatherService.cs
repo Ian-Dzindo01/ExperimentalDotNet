@@ -1,8 +1,7 @@
 using System.Net;
 using System.Net.Http.Json;
 using System.Text.Json.Serialization;
-
-namespace CliTools.Weather;
+using CliTools.Models;
 
 public interface IWeatherService
 {
@@ -23,8 +22,8 @@ public class OpenWeatherMapService : IWeatherService
     public async Task<WeatherResponse?> GetWeatherForCityAsync(string city)
     {
         var client = _httpClientFactory.CreateClient();
-
-        var url = $"http://api.weatherapi.com/v1/current.json?key={ApiKey}&q=Sarajevo&aqi=no";
+            
+        var url = $"http://api.weatherapi.com/v1/current.json?key={ApiKey}&q={city}&aqi=no";
 
         var weatherResponse = await client.GetAsync(url);
         if (weatherResponse.StatusCode == HttpStatusCode.NotFound)
@@ -37,33 +36,10 @@ public class OpenWeatherMapService : IWeatherService
 
     public class WeatherResponse
     {
-        [JsonPropertyName("main")] public OpenWeatherMapWeather Weather { get; set; }
+        [JsonPropertyName("location")]
+        public Location Location { get; set; }
 
-        [JsonPropertyName("visibility")] public int Visibility { get; set; }
-
-        [JsonPropertyName("dt")] public int Dt { get; set; }
-
-        [JsonPropertyName("timezone")] public int Timezone { get; set; }
-
-        [JsonPropertyName("id")] public int Id { get; set; }
-
-        [JsonPropertyName("name")] public string Name { get; set; }
-
-        [JsonPropertyName("cod")] public int Cod { get; set; }
-    }
-
-    public class OpenWeatherMapWeather
-    {
-        [JsonPropertyName("temp")] public double Temp { get; set; }
-
-        [JsonPropertyName("feels_like")] public double FeelsLike { get; set; }
-
-        [JsonPropertyName("temp_min")] public double TempMin { get; set; }
-
-        [JsonPropertyName("temp_max")] public double TempMax { get; set; }
-
-        [JsonPropertyName("pressure")] public int Pressure { get; set; }
-
-        [JsonPropertyName("humidity")] public int Humidity { get; set; }
+        [JsonPropertyName("current")]
+        public Current Current { get; set; }
     }
 }

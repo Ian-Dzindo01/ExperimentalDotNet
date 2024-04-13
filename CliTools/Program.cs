@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using CliTools.Weather;
 using Cocona;
 using System.Text.Json;
 
@@ -16,9 +15,9 @@ builder.Services.AddSingleton<IWeatherService, OpenWeatherMapService>();
 
 var app =  builder.Build();
 
-app.AddCommand("weather", async (IWeatherService weatherService) =>
+app.AddCommand("weather", async (string city, IWeatherService weatherService) =>
 {
-    var weather = await weatherService.GetWeatherForCityAsync("Paris");
+    var weather = await weatherService.GetWeatherForCityAsync(city);
     Console.WriteLine(JsonSerializer.Serialize(weather, new JsonSerializerOptions{WriteIndented=true}));
 });
 
