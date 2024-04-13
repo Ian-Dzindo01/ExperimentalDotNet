@@ -1,24 +1,17 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Cocona;
-using System.Text.Json;
-
-//CoconaApp.Run(([Argument(Description = "First Name")] string name, 
-//               [Option(Description = "Last name")] string? lastName) =>
-//{
-//    Console.WriteLine($"Hello {name}");
-//});
+using Microsoft.Extensions.Logging;
+using CliTools.Weather;
 
 var builder = CoconaApp.CreateBuilder();
+
+builder.Logging.AddFilter("System.Net.Http", LogLevel.Warning);
 
 builder.Services.AddHttpClient();
 builder.Services.AddSingleton<IWeatherService, OpenWeatherMapService>();
 
 var app =  builder.Build();
 
-app.AddCommand("weather", async (string city, IWeatherService weatherService) =>
-{
-    var weather = await weatherService.GetWeatherForCityAsync(city);
-    Console.WriteLine(JsonSerializer.Serialize(weather, new JsonSerializerOptions{WriteIndented=true}));
-});
+app.AddCommands<WeatherCommands>();
 
 app.Run();
